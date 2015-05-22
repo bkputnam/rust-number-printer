@@ -15,7 +15,17 @@ fn it_works() {
 		TestExpectation { input: 6, expectation: "six" },
 		TestExpectation { input: 7, expectation: "seven" },
 		TestExpectation { input: 8, expectation: "eight" },
-		TestExpectation { input: 9, expectation: "nine" }
+		TestExpectation { input: 9, expectation: "nine" },
+		TestExpectation { input: 10, expectation: "ten" },
+		TestExpectation { input: 11, expectation: "eleven" },
+		TestExpectation { input: 12, expectation: "twelve" },
+		TestExpectation { input: 13, expectation: "thirteen" },
+		TestExpectation { input: 14, expectation: "fourteen" },
+		TestExpectation { input: 15, expectation: "fifteen" },
+		TestExpectation { input: 16, expectation: "sixteen" },
+		TestExpectation { input: 17, expectation: "seventeen" },
+		TestExpectation { input: 18, expectation: "eighteen" },
+		TestExpectation { input: 19, expectation: "nineteen" }
 	];
 
 	for test in tests {
@@ -23,14 +33,22 @@ fn it_works() {
 	}
 }
 
-fn format<'a>(num: i32) -> &'a str {
-	match num {
-		0 => "zero",
-		_ => format_ones(num)
+fn format(num: i32) -> String {
+	if num == 0 {
+		"zero".to_string()
+	}
+	else if num > 0 && num < 10 {
+		format_ones(num)
+	}
+	else if num >= 10 && num < 20 {
+		format_tens(num)
+	}
+	else {
+		panic!("Unable to format number: {}", num)
 	}
 }
 
-fn format_ones(num: i32) -> &'static str {
+fn format_ones(num: i32) -> String {
 	match num {
 		0 => "",
 		1 => "one",
@@ -43,5 +61,21 @@ fn format_ones(num: i32) -> &'static str {
 		8 => "eight",
 		9 => "nine",
 		_ => panic!("You shouldn't have passed {} to format_ones", num)
+	}.to_string()
+}
+
+fn format_tens(num: i32) -> String {
+	match num {
+		10 => "ten".to_string(),
+		11 => "eleven".to_string(),
+		12 => "twelve".to_string(),
+		13 => "thirteen".to_string(),
+		15 => "fifteen".to_string(),
+		18 => "eighteen".to_string(),
+		_ => {
+			let ones_place = num % 10;
+			format_ones(ones_place).to_string() + "teen"
+		}
 	}
 }
+
