@@ -6,6 +6,7 @@ struct TestExpectation {
 #[test]
 fn it_works() {
 	let tests = vec![
+		TestExpectation { input: -1, expectation: "negative one" },
 		TestExpectation { input: 0, expectation: "zero" },
 		TestExpectation { input: 1, expectation: "one" },
 		TestExpectation { input: 2, expectation: "two" },
@@ -34,7 +35,10 @@ fn it_works() {
 }
 
 fn format(num: i32) -> String {
-	if num == 0 {
+	if num < 0 {
+		"negative ".to_string() + &format(-num)
+	}
+	else if num == 0 {
 		"zero".to_string()
 	}
 	else if num > 0 && num < 10 {
