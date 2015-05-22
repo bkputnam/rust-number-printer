@@ -1,0 +1,4 @@
+[root]
+name = "rust-number-printer"
+version = "0.1.0"
+

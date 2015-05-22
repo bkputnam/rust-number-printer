@@ -1,0 +1,4 @@
+[package]
+name = "rust-number-printer"
+version = "0.1.0"
+authors = ["Brian Putnam <brian@brian-putnam.com>"]
