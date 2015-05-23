@@ -96,22 +96,25 @@ fn format_lt_ten(num: i32) -> String {
 }
 
 fn format_lt_twenty(num: i32) -> String {
-	match num {
-		10 => "ten".to_string(),
-		11 => "eleven".to_string(),
-		12 => "twelve".to_string(),
-		13 => "thirteen".to_string(),
-		15 => "fifteen".to_string(),
-		18 => "eighteen".to_string(),
-		_ => {
-			if num < 10 {
-				format_lt_ten(num)
-			}
-			else {
+	if num < 10 {
+		format_lt_ten(num)
+	}
+	else if num < 20 {
+		match num {
+			10 => "ten".to_string(),
+			11 => "eleven".to_string(),
+			12 => "twelve".to_string(),
+			13 => "thirteen".to_string(),
+			15 => "fifteen".to_string(),
+			18 => "eighteen".to_string(),
+			_ => {
 				let ones_place = num % 10;
 				format_lt_ten(ones_place).to_string() + "teen"
 			}
 		}
+	}
+	else {
+		panic!("You shouldn't have passed {} to format_lt_twenty", num)
 	}
 }
 
