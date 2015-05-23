@@ -1,3 +1,5 @@
+
+#[cfg(test)]
 struct TestExpectation {
 	input: i32,
 	expectation: &'static str
