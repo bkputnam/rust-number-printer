@@ -79,7 +79,7 @@ fn project_euler_test() {
 	}
 }
 
-fn format(num: i32) -> String {
+pub fn format(num: i32) -> String {
 	if num < 0 {
 		"negative ".to_string() + &format(-num)
 	}
