@@ -51,16 +51,28 @@ fn it_works() {
 		TestExpectation { input: 99, expectation: "ninety-nine" },
 
 		TestExpectation { input: 100, expectation: "one hundred" },
-		TestExpectation { input: 234, expectation: "two hundred thirty-four" },
-		TestExpectation { input: 456, expectation: "four hundred fifty-six" },
-		TestExpectation { input: 999, expectation: "nine hundred ninety-nine" },
+		TestExpectation { input: 234, expectation: "two hundred and thirty-four" },
+		TestExpectation { input: 456, expectation: "four hundred and fifty-six" },
+		TestExpectation { input: 999, expectation: "nine hundred and ninety-nine" },
 
 		TestExpectation { input: 1000, expectation: "one thousand" },
-		TestExpectation { input: 2345, expectation: "two thousand three hundred forty-five" },
-		TestExpectation { input: 34567, expectation: "thirty-four thousand five hundred sixty-seven" },
-		TestExpectation { input: 456789, expectation: "four hundred fifty-six thousand seven hundred eighty-nine" }
+		TestExpectation { input: 2345, expectation: "two thousand three hundred and forty five" },
+		TestExpectation { input: 34567, expectation: "thirty four thousand five hundred and sixty seven" },
+		TestExpectation { input: 456789, expectation: "four hundred fifty six thousand seven hundred and eighty nine" }
 
 	];
+
+	for test in tests {
+		assert_eq!(format(test.input), test.expectation)
+	}
+}
+
+#[test]
+fn project_euler_test() {
+	let tests = vec![
+		TestExpectation { input: 342, expectation: "three hundred and forty-two" },
+		TestExpectation { input: 115, expectation: "one hundred and fifteen" }
+	};
 
 	for test in tests {
 		assert_eq!(format(test.input), test.expectation)
@@ -159,7 +171,7 @@ fn format_lt_thousand(num: i32) -> String {
 			hundreds_str
 		}
 		else {
-			hundreds_str + " " + &format_lt_hundred(tens)
+			hundreds_str + " and " + &format_lt_hundred(tens)
 		}
 	}
 }
