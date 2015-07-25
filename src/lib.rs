@@ -56,9 +56,9 @@ fn it_works() {
 		TestExpectation { input: 999, expectation: "nine hundred and ninety-nine" },
 
 		TestExpectation { input: 1000, expectation: "one thousand" },
-		TestExpectation { input: 2345, expectation: "two thousand three hundred and forty five" },
-		TestExpectation { input: 34567, expectation: "thirty four thousand five hundred and sixty seven" },
-		TestExpectation { input: 456789, expectation: "four hundred fifty six thousand seven hundred and eighty nine" }
+		TestExpectation { input: 2345, expectation: "two thousand three hundred and forty-five" },
+		TestExpectation { input: 34567, expectation: "thirty-four thousand five hundred and sixty-seven" },
+		TestExpectation { input: 456789, expectation: "four hundred and fifty-six thousand seven hundred and eighty-nine" }
 
 	];
 
@@ -72,7 +72,7 @@ fn project_euler_test() {
 	let tests = vec![
 		TestExpectation { input: 342, expectation: "three hundred and forty-two" },
 		TestExpectation { input: 115, expectation: "one hundred and fifteen" }
-	};
+	];
 
 	for test in tests {
 		assert_eq!(format(test.input), test.expectation)
