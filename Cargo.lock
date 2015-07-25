@@ -1,4 +1,4 @@
 [root]
-name = "rust-number-printer"
+name = "printer"
 version = "0.1.0"
 
